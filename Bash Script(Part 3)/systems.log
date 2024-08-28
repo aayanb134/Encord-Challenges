@@ -1,0 +1,23 @@
+Aug 17 09:15:23 server-name systemd[1]: Started System Logging Service.
+Aug 17 09:15:23 server-name kernel: [    0.000000] Linux version 5.15.0-46-generic (buildd@lcy02-amd64-009) (gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #49~20.04.1-Ubuntu SMP Tue Aug 9 15:01:15 UTC 2022 (Ubuntu 5.15.0-46.49~20.04.1-generic 5.15.39)
+Aug 17 09:16:30 server-name sshd[1130]: Failed password for invalid user admin from 192.168.1.10 port 22 ssh2
+Aug 17 09:17:02 server-name sshd[1130]: Accepted password for user1 from 192.168.1.15 port 22 ssh2
+Aug 17 09:17:10 server-name systemd[1]: Starting Daily apt download activities...
+Aug 17 09:17:13 server-name systemd[1]: apt-daily.service: Succeeded.
+Aug 17 09:18:15 server-name kernel: [   45.678910] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+Aug 17 09:20:32 server-name app-service[1234]: ERROR: Unable to connect to the database. Connection timed out.
+Aug 17 09:21:00 server-name app-service[1234]: Application started successfully.
+Aug 17 09:22:43 server-name systemd[1]: Started Daily apt upgrade and clean activities.
+Aug 17 09:25:02 server-name cron[1123]: (root) CMD (run-parts --report /etc/cron.daily)
+Aug 17 09:26:30 server-name sshd[1130]: Failed password for invalid user admin from 192.168.1.20 port 22 ssh2
+Aug 17 09:27:05 server-name app-service[1234]: ERROR: Unexpected token in JSON at position 35.
+Aug 23 09:29:30 server-name kernel: [  123.456789] [UFW BLOCK] IN=eth0 OUT= MAC=01:23:45:67:89:ab:cd:ef:00 SRC=192.168.1.12 DST=192.168.1.5 LEN=48 TOS=0x00 PREC=0x00 TTL=64 ID=54321 DF PROTO=TCP SPT=443 DPT=513 WINDOW=65535 RES=0x00 SYN URGP=0
+Aug 23 09:30:10 server-name systemd[1]: Reloaded OpenBSD Secure Shell server.
+Aug 23 09:32:45 server-name app-service[1234]: FAIL: Service initialization failed due to configuration error.
+Aug 23 09:35:18 server-name kernel: [  678.456789] [UFW BLOCK] IN=eth0 OUT= MAC=01:23:45:67:89:ab:cd:ef:00 SRC=192.168.1.13 DST=192.168.1.5 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54322 DF PROTO=TCP SPT=80 DPT=513 WINDOW=65535 RES=0x00 SYN URGP=0
+Aug 23 21:09:45 server-name app-service[1234]: ERROR: Could not write to the log file. Permission denied.
+Aug 23 21:10:01 server-name systemd[1]: Started Daily Cleanup of Temporary Directories.
+Aug 23 21:11:10 server-name app-service[1234]: Application shutting down gracefully.
+Aug 24 10:27:32 server-name app-service[1234]: ERROR: Unable to connect to the database. Connection timed out.
+Aug 24 10:27:00 server-name app-service[1234]: Application started successfully.
+Aug 24 10:28:45 server-name app-service[1234]: FAIL: Service initialization failed due to configuration error.

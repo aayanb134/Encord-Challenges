@@ -1,0 +1,52 @@
+name: Encord Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Node.js setup
+      uses: actions/setup-node@v2
+      with:
+        node-version: "16"
+
+    - name: dependencies and test run (frontend)
+      run: cd frontend
+        npm install
+        npm test
+
+    - name: Python setup
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.9"
+
+    - name: Install dependencies and run tests (backend)
+      run: cd backend
+        pip install -r requirements.txt
+        pytest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: ECS Deployment
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: backend/taskdef.json
+          service: web-app-backend
+          cluster: web-app-cluster
+          wait-for-service-stability: true
+
+      - name: Deploy Frontend to S3
+        run: aws s3 sync ./frontend/build s3://web-app-frontend --delete
+          aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
